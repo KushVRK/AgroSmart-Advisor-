@@ -1,0 +1,16 @@
+# Core
+pandas
+numpy
+scikit-learn
+lightgbm
+joblib
+
+# API calls
+requests
+python-dotenv
+
+# Streamlit app
+streamlit
+
+# Optional (if you use notebooks)
+jupyter
