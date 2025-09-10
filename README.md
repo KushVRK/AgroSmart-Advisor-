@@ -1,87 +1,120 @@
-📌 Project Idea
+🌾 AgroSmart Advisor
 
-AgroSmart Advisor is a data-driven platform to help farmers make smarter crop choices.
-It combines soil data, market prices, and weather forecasts to suggest crops that are both suitable and profitable.
+AgroSmart Advisor is an intelligent crop recommendation system that helps farmers decide which crops to grow based on soil nutrients, weather, season, and market prices. It provides top crop recommendations along with expected profitability, while also highlighting crops to avoid.
 
-🚀 Progress — Week 1
+🚀 Features
 
-In Phase 1 & Phase 2, the following steps were completed:
+Accepts farmer inputs: NPK values, soil pH, temperature, humidity, rainfall, season, and month.
 
-Project Setup
+Recommends top crops with suitability score + expected price per kg.
 
-Organized folders: data/raw, data/interim, data/processed, models, app
+Highlights crops to avoid in current conditions.
 
-Created virtual environment (.venv) for package management.
+Season-aware recommendations (Kharif, Rabi, Zaid, Monsoon).
 
-Dataset Collection & Cleaning
+Interactive web app built with Streamlit.
 
-Imported Kaggle Crop Recommendation dataset and performed basic cleaning.
+Simple and farmer-friendly interface.
 
-Imported AgmarkNet commodity price dataset, renamed columns, converted date format, created month feature.
+🖥️ Tech Stack
 
-Feature Engineering
+Python 3.10+
 
-Generated monthly median prices per state and commodity.
+Streamlit – web interface
 
-Added 3-month moving averages and 12-month median baseline indicators.
+Scikit-learn – ML models
 
-Weather Integration
+Pandas / NumPy – data processing
 
-Connected to OpenWeather API (tested 5-day forecast).
+Matplotlib / Seaborn – visualizations
 
-Saved forecast to data/raw/weather.json.
-
-Model Training (MVP)
-
-Trained crop suitability models (RandomForest, one-vs-rest per crop).
-
-Trained demand model (LightGBM using commodity price trends).
-
-Saved trained models to models/.
-
-Streamlit App (Initial Draft)
-
-Created app/app.py for simple MVP interface.
-
-Currently shows placeholder prediction results.
-
-📂 Repository Structure
+📂 Project Structure
 AgroSmart-Advisor/
-│
-├── app/                   # Streamlit app
-│   └── app.py
-│
-├── data/
-│   ├── raw/               # Raw datasets (Kaggle, AgmarkNet, Weather API)
-│   ├── interim/           # Cleaned datasets
-│   └── processed/         # Processed datasets (features, trends)
-│
-├── models/                # Trained ML models
-│
-├── notebooks/             # Jupyter notebooks (experiments)
-│
-├── requirements.txt       # Dependencies
-└── README.md              # Project documentation
+│── app.py                        # Main Streamlit app
+│── phase6_prediction_pipeline.py # Crop prediction logic
+│── models/                       # Saved ML models (.pkl) [not tracked in Git]
+│── data/                         # Dataset files [not tracked in Git]
+│── requirements.txt              # Python dependencies
+│── README.md                     # Project documentation
 
-🛠️ Tech Stack
+⚙️ Setup Instructions
 
-Python 3.9+
+Clone this repository:
 
-Libraries: pandas, scikit-learn, LightGBM, joblib, requests, Streamlit
+git clone https://github.com/KushVRK/AgroSmart-Advisor-.git
+cd AgroSmart-Advisor-
 
-APIs: OpenWeather (forecast data)
 
-Tools: GitHub, VS Code, Jupyter Notebook
+Create a virtual environment:
 
-✅ Next Steps (Week 2 Plan)
+python -m venv .venv
+.venv\Scripts\activate   # On Windows
+source .venv/bin/activate # On Mac/Linux
 
-Improve data cleaning (remove invalid values like negative rainfall).
 
-Add richer weather features (temperature/humidity averages, rainfall).
+Install dependencies:
 
-Build better Streamlit UI for farmers (crop & price recommendations).
+pip install -r requirements.txt
 
-Test models with more states and crops.
 
-✍️ Author: Kushal V R
-📅 Week 1 Milestone Completed
+Run the app:
+
+streamlit run app.py
+
+
+Open your browser at:
+
+http://localhost:8503/
+
+🌱 Indian Crop Seasons
+
+To help farmers choose the correct season input:
+
+Kharif (June – October) 🌧️
+
+Crops: Rice, Maize, Cotton, Soybean, Groundnut, Bajra, Sugarcane
+
+Rabi (November – April) ❄️
+
+Crops: Wheat, Barley, Gram, Mustard, Peas, Linseed
+
+Zaid (March – June) ☀️
+
+Crops: Watermelon, Muskmelon, Cucumber, Vegetables, Fodder crops
+
+Monsoon (varies, overlaps Kharif) 🌦️
+
+Crops: Paddy, Jute, Cotton
+
+👉 Example: Since September falls in Kharif season, select “Kharif” in the app.
+
+
+📊 Dataset & Models
+
+Large datasets and trained ML models are not uploaded to GitHub due to size limits.
+
+🔗 Download them here:
+
+Google Drive Link
+ (replace with your actual link)
+
+After downloading:
+
+Place datasets inside data/ folder
+
+Place models inside models/ folder
+
+✅ Future Improvements
+
+Add farmer language support (Hindi, Telugu, Kannada, etc.)
+
+Integrate real-time weather API
+
+Add yield prediction and fertilizer recommendation
+
+Deploy online for public farmers’ access
+
+👨‍💻 Author
+
+Kushal V R
+🔗 kushVRK
