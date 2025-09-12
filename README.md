@@ -117,4 +117,4 @@ Deploy online for public farmers’ access
 👨‍💻 Author
 
 Kushal V R
-🔗 kushVRK
+KushVRK
